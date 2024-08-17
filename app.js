@@ -15,6 +15,9 @@ const productRoutes = require('./routes/product.routes');
 const reviewRoutes = require('./routes/reviews.routes');
 const userRoutes = require('./routes/user.routes');
 
+app.use(express.json());
+app.use(cors());
+
 // Use routes
 app.use('/api/cart', cartRoutes);
 app.use('/api/categories', categoryRoutes);
@@ -24,8 +27,6 @@ app.use('/api/products', productRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/users', userRoutes);
 
-app.use(express.json());
-app.use(cors());
 
 app.use('/', (req, res) => {
     res.send('All good 😊');
